@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("date").textContent = 
     `${year}年 ${month}月 ${day}日`;
 
-  // 完整lookup表（之前從你Excel生成，保持不變）
+  // 完整lookup表（保持不變）
   const lookupTable = {
     1: {31:4,30:3,29:2,28:1,27:8,26:7,25:6,24:5,23:4,22:3,21:2,20:1,19:8,18:4,17:3,16:2,15:1,14:8,13:7,12:6,11:5,10:4,9:3,8:2,7:1,6:8,5:7,4:6,3:5,2:4,1:3},
     2: {28:1,27:8,26:7,25:6,24:5,23:4,22:3,21:2,20:1,19:8,18:7,17:6,16:5,15:4,14:3,13:2,12:1,11:8,10:7,9:6,8:5,7:4,6:3,5:2,4:1,3:8,2:7,1:6},
@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
     12: {31:5,30:4,29:3,28:2,27:1,26:8,25:7,24:6,23:5,22:4,21:3,20:2,19:1,18:8,17:7,16:6,15:5,14:4,13:3,12:2,11:1,10:8,9:7,8:3,7:2,6:1,5:8,4:7,3:6,2:5,1:4}
   };
 
-  // 你最新提供嘅1-8對應顏色信息
+  // 你1-8對應顏色
   const colorAdvice = {
     1: { sheng: "黑或藍", wang: "綠", ji: "大黃或大紅" },
     2: { sheng: "黑或藍", wang: "綠", ji: "淺黃或淺紅" },
@@ -36,15 +36,18 @@ document.addEventListener("DOMContentLoaded", () => {
     8: { sheng: "白或金", wang: "黑或藍", ji: "深綠" }
   };
 
-  // 查找今日number
+  // 查找number
   let number = 1;
   if (lookupTable[month] && lookupTable[month][day]) {
     number = lookupTable[month][day];
   }
 
-  // 顯示顏色建議
+  // 只改呢度：用換行顯示三行
   const advice = colorAdvice[number];
-  document.getElementById("sheng").textContent = advice.sheng;
-  document.getElementById("wang").textContent = advice.wang;
-  document.getElementById("ji").textContent = advice.ji;
+  const resultText = 
+    `今日生嘅顏色：${advice.sheng}\n` +
+    `今日旺嘅顏色：${advice.wang}\n` +
+    `今日忌嘅顏色：${advice.ji}`;
+
+  document.getElementById("result").textContent = resultText;
 });
