@@ -40,21 +40,42 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const advice = colorAdvice[number];
 
-  // 加 class 去控制顏色（近似匹配）
+  // 根據單一詞決定顏色 class
   const getColorClass = (text) => {
     if (text.includes("黑") || text.includes("藍")) return "color-black-blue";
     if (text.includes("綠")) return "color-green";
     if (text.includes("黃") || text.includes("紅")) return "color-yellow-red";
     if (text.includes("啡") || text.includes("泥黃")) return "color-brown";
-    if (text.includes("金") || text.includes("白")) return "color-white-gold";
-    if (text.includes("紅")) return "color-red";
-    return ""; // 預設
+    if (text.includes("白")) return "color-white-gold";
+    if (text.includes("金")) return "color-white-gold";
+    return "";
   };
 
+  // 拆字上色函數（處理「或」）
+  const colorizeText = (text) => {
+    if (!text.includes("或")) {
+      return `<span class="color-text ${getColorClass(text)}">${text}</span>`;
+    }
+    
+    const parts = text.split("或");
+    let html = '';
+    parts.forEach((part, index) => {
+      const trimmed = part.trim();
+      if (trimmed) {
+        html += `<span class="color-text ${getColorClass(trimmed)}">${trimmed}</span>`;
+      }
+      if (index < parts.length - 1) {
+        html += '<span class="or">或</span>';
+      }
+    });
+    return html;
+  };
+
+  // 最終 HTML
   const resultHTML = 
-    `<span class="label">今日生嘅顏色：</span><span class="color-text ${getColorClass(advice.sheng)}">${advice.sheng}</span>\n` +
-    `<span class="label">今日旺嘅顏色：</span><span class="color-text ${getColorClass(advice.wang)}">${advice.wang}</span>\n` +
-    `<span class="label">今日忌嘅顏色：</span><span class="color-text ${getColorClass(advice.ji)}">${advice.ji}</span>`;
+    `<span class="label">今日生嘅顏色：</span>${colorizeText(advice.sheng)}<br>` +
+    `<span class="label">今日旺嘅顏色：</span>${colorizeText(advice.wang)}<br>` +
+    `<span class="label">今日忌嘅顏色：</span>${colorizeText(advice.ji)}`;
 
   document.getElementById("result").innerHTML = resultHTML;
 });
