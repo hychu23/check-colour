@@ -32,26 +32,26 @@ h1 {
 
 #result {
   font-size: 2.4rem;
-  margin: 30px 0;               /* 整體 result 區塊同上下元素距離 */
+  margin: 30px 0;
   color: #d81b60;
   font-weight: bold;
   white-space: pre-line;
-  line-height: 1.4;             /* 整體行高再收細少少 */
+  line-height: 1.35;           /* 整體行高再收細少少 */
 }
 
 #result .label {
   display: block;
-  margin-bottom: 0.1em;         /* 標題同下面顏色之間距離 - 調呢度！（原0.3em → 0.1em） */
+  margin-bottom: 0.05em;       /* 標題同顏色文字之間距離 - 再 closer */
   color: #555;
   font-size: 2.2rem;
 }
 
 #result .color-text {
   display: block;
-  margin-bottom: 0.8em;         /* 每組顏色同下一組標題之間距離 - 調呢度！（原1.2em → 0.8em） */
+  margin-bottom: 0.5em;        /* 每組之間距離 - 再 closer */
 }
 
-/* 顏色 class 保持不變 */
+/* 顏色 class */
 .color-black-blue { color: #1e3a8a; }
 .color-green     { color: #16a34a; }
 .color-yellow-red{ color: #ca8a04; }
