@@ -40,21 +40,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const advice = colorAdvice[number];
 
-  // 單一詞顏色 class
+  // 每個獨立顏色詞對應 class
   const getColorClass = (text) => {
-    if (text.includes("黑") || text.includes("藍")) return "color-black-blue";
-    if (text.includes("綠")) return "color-green";
-    if (text.includes("黃") || text.includes("紅")) return "color-yellow-red";
-    if (text.includes("啡") || text.includes("泥黃")) return "color-brown";
-    if (text.includes("白")) return "color-white-gold";
-    if (text.includes("金")) return "color-white-gold";
+    text = text.trim();
+    if (text === "黑") return "color-black";
+    if (text === "藍") return "color-blue";
+    if (text === "綠") return "color-green";
+    if (text === "大黃") return "color-big-yellow";
+    if (text === "大紅") return "color-big-red";
+    if (text === "淺黃") return "color-light-yellow";
+    if (text === "淺紅") return "color-light-red";
+    if (text === "泥黃") return "color-mud-yellow";
+    if (text === "啡") return "color-brown";
+    if (text === "白") return "color-white";
+    if (text === "金") return "color-gold";
+    if (text === "紅") return "color-red";
+    if (text === "淺綠") return "color-light-green";
+    if (text === "深綠") return "color-deep-green";
     return "";
   };
 
-  // 處理「或」：保持一行，拆開上色
+  // 處理文字：有「或」就拆開上色，但保持同一行
   const colorizeText = (text) => {
     if (!text.includes("或")) {
-      return `<span class="${getColorClass(text)}">${text}</span>`;
+      return `<span class="color-part ${getColorClass(text)}">${text}</span>`;
     }
 
     const parts = text.split("或");
@@ -62,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
     parts.forEach((part, index) => {
       const trimmed = part.trim();
       if (trimmed) {
-        html += `<span class="${getColorClass(trimmed)}">${trimmed}</span>`;
+        html += `<span class="color-part ${getColorClass(trimmed)}">${trimmed}</span>`;
       }
       if (index < parts.length - 1) {
         html += '<span class="or">或</span>';
