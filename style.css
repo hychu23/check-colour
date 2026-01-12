@@ -32,43 +32,47 @@ h1 {
 
 #result {
   font-size: 2.4rem;
-  margin: 30px 0;
+  margin: 40px 0;
   color: #d81b60;
   font-weight: bold;
-  line-height: 1.35;
+  line-height: 1.6;
 }
 
-/* 每組（生/旺/忌）一行 */
 .advice-line {
-  margin-bottom: 0.4em;           /* 每組之間距離，可再調小 */
-  text-align: left;               /* 左對齊更整齊 */
+  margin-bottom: 0.5em;
+  text-align: left;
 }
 
-/* 標題部分（今日...顏色：） */
 .advice-line .label {
   display: inline;
-  margin-right: 0.3em;            /* 標題同顏色文字之間小距離 */
+  margin-right: 0.4em;
   color: #555;
   font-size: 2.2rem;
 }
 
-/* 顏色文字部分 */
-.advice-line span:not(.label):not(.or) {
+.advice-line .color-part {
   font-size: 2.4rem;
 }
 
-/* 顏色 class */
-.color-black-blue { color: #1e3a8a; }    /* 黑或藍 */
-.color-green     { color: #16a34a; }     /* 綠 */
-.color-yellow-red{ color: #ca8a04; }     /* 黃/紅相關 */
-.color-brown     { color: #8b4513; }     /* 啡/泥黃 */
-.color-white-gold{ color: #d4af37; }     /* 白或金 */
-.color-red       { color: #dc2626; }     /* 紅 */
-.color-white     { color: #444; }        /* 白（用深灰代替純白） */
+/* 獨立顏色 class - 每個顏色都有自己 hex code */
+.color-black     { color: #111111; }      /* 黑 */
+.color-blue      { color: #1e40af; }      /* 藍 */
+.color-green     { color: #15803d; }      /* 綠 */
+.color-big-yellow{ color: #d97706; }      /* 大黃 */
+.color-big-red   { color: #b91c1c; }      /* 大紅 */
+.color-light-yellow { color: #fbbf24; }   /* 淺黃 */
+.color-light-red { color: #f87171; }      /* 淺紅 */
+.color-mud-yellow{ color: #a0785a; }      /* 泥黃 */
+.color-brown     { color: #78543d; }      /* 啡 */
+.color-white     { color: #e5e5e5; }      /* 白（淺灰白） */
+.color-gold      { color: #d4af37; }      /* 金 */
+.color-red       { color: #ef4444; }      /* 紅 */
+.color-light-green { color: #6ee7b7; }    /* 淺綠 */
+.color-deep-green{ color: #065f46; }      /* 深綠 */
 
 /* 「或」字樣式 */
 .or {
   color: #666;
-  margin: 0 0.3em;
+  margin: 0 0.4em;
   font-weight: normal;
 }
