@@ -36,26 +36,33 @@ h1 {
   color: #d81b60;
   font-weight: bold;
   white-space: pre-line;
-  line-height: 1.35;           /* 整體行高再收細少少 */
+  line-height: 1.35;
 }
 
 #result .label {
   display: block;
-  margin-bottom: 0.05em;       /* 標題同顏色文字之間距離 - 再 closer */
+  margin-bottom: 0.05em;        /* 標題同顏色文字之間距離（超近） */
   color: #555;
   font-size: 2.2rem;
 }
 
 #result .color-text {
   display: block;
-  margin-bottom: 0.5em;        /* 每組之間距離 - 再 closer */
+  margin-bottom: 0.5em;         /* 每組之間距離（已收細） */
 }
 
 /* 顏色 class */
-.color-black-blue { color: #1e3a8a; }
-.color-green     { color: #16a34a; }
-.color-yellow-red{ color: #ca8a04; }
-.color-brown     { color: #8b4513; }
-.color-white-gold{ color: #d4af37; }
-.color-red       { color: #dc2626; }
-.color-white     { color: #444; }
+.color-black-blue { color: #1e3a8a; }    /* 黑或藍 */
+.color-green     { color: #16a34a; }     /* 綠 */
+.color-yellow-red{ color: #ca8a04; }     /* 黃/紅相關 */
+.color-brown     { color: #8b4513; }     /* 啡/泥黃 */
+.color-white-gold{ color: #d4af37; }     /* 白或金 */
+.color-red       { color: #dc2626; }     /* 紅 */
+.color-white     { color: #444; }        /* 白（深灰代替） */
+
+/* 「或」字樣式 */
+.or {
+  color: #666;
+  font-weight: normal;
+  margin: 0 4px;
+}
