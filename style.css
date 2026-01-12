@@ -31,15 +31,31 @@ h1 {
 }
 
 #result {
-  font-size: 2.8rem;          /* 改咗呢度：同 h1 一樣大（2.8rem） */
-  margin: 30px 0;
+  font-size: 2.4rem;          /* 再細啲，同 h1 比細少少 */
+  margin: 40px 0;
   color: #d81b60;
   font-weight: bold;
   white-space: pre-line;      /* 保持換行 */
-  line-height: 1.6;           /* 行距稍大啲，讀得舒服 */
+  line-height: 1.8;           /* 行距大啲，讀得舒服 */
 }
 
-.tip {
-  font-size: 1.4rem;
-  color: #777;
+#result .label {
+  display: block;
+  margin-bottom: 0.3em;
+  color: #555;                /* 標題如「今日生嘅顏色：」用灰色 */
+  font-size: 2.2rem;          /* 標題比顏色文字細少少 */
 }
+
+#result .color-text {
+  display: block;
+  margin-bottom: 1.2em;
+}
+
+/* 根據顏色變字色（近似匹配你表入面常見顏色） */
+.color-black-blue { color: #1e3a8a; }   /* 深藍 */
+.color-green     { color: #16a34a; }    /* 綠 */
+.color-yellow-red{ color: #ca8a04; }    /* 淺黃/金黃偏紅 */
+.color-brown     { color: #8b4513; }    /* 啡/泥黃 */
+.color-white-gold{ color: #d4af37; }    /* 金 */
+.color-red       { color: #dc2626; }    /* 大紅 */
+.color-white     { color: #444; }       /* 白（用深灰代替純白） */
