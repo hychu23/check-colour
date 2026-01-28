@@ -12,10 +12,10 @@ body {
 .container {
   text-align: center;
   background: rgba(255, 255, 255, 0.85);
-  padding: 50px 30px;  /* 手機上左右padding減少，避免過擠 */
+  padding: 50px 40px;
   border-radius: 30px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-  max-width: 95%;
+  max-width: 90%;
 }
 
 h1 {
@@ -28,22 +28,21 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 25px;                    /* 按鈕同日期之間距離加大 */
+  gap: 20px;
   margin-bottom: 35px;
-  flex-wrap: nowrap;            /* 唔換行，但手機上會自動縮放 */
+  flex-wrap: wrap;
 }
 
 .date-btn {
   background: rgba(0, 0, 0, 0.1);
   border: none;
   border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  font-size: 1.6rem;
+  width: 55px;
+  height: 55px;
+  font-size: 1.5rem;
   cursor: pointer;
   color: #555;
   transition: all 0.2s;
-  flex-shrink: 0;
 }
 
 .date-btn:hover {
@@ -55,27 +54,18 @@ h1 {
   font-size: 1.9rem;
   color: #333;
   margin: 0;
-  padding: 0 30px;              /* 日期左右加闊空間 */
+  padding: 0 20px;
   white-space: nowrap;
-  flex-shrink: 0;
 }
 
-/* 手機優化：如果螢幕太細，減小按鈕 + 距離 */
 @media (max-width: 480px) {
   .date-row {
     gap: 15px;
-    padding: 0 10px;
+    justify-content: space-around;
   }
-  
-  .date-btn {
-    width: 50px;
-    height: 50px;
-    font-size: 1.4rem;
-  }
-  
   .date {
-    font-size: 1.6rem;
-    padding: 0 20px;
+    padding: 0 30px;
+    font-size: 1.7rem;
   }
 }
 
@@ -84,28 +74,36 @@ h1 {
   margin: 40px 0;
   color: #d81b60;
   font-weight: bold;
-  line-height: 1.8;
-  text-align: left;
+  line-height: 1.7;
 }
 
 .advice-line {
-  margin-bottom: 1em;
+  margin-bottom: 1.2em;
   text-align: left;
-  display: flex;
-  align-items: flex-start;
-  flex-wrap: nowrap;
 }
 
 .advice-line .label {
+  display: block;
+  margin-bottom: 0.3em;
   color: #555;
   font-size: 2.1rem;
-  white-space: nowrap;
-  margin-right: 0.5em;
 }
 
-.advice-line .color-text {
+.advice-line .result-line {
+  display: block;
   font-size: 2.4rem;
-  white-space: nowrap;
+}
+
+.advice-line .color-part,
+.advice-line .or {
+  display: inline;               /* 確保「黑 或 藍」同一行 */
+  vertical-align: baseline;
+}
+
+.advice-line .or {
+  color: #666;
+  margin: 0 0.4em;
+  font-weight: normal;
 }
 
 /* 獨立顏色 class */
@@ -123,13 +121,6 @@ h1 {
 .color-red         { color: #ef4444; }
 .color-light-green { color: #6ee7b7; }
 .color-deep-green  { color: #065f46; }
-
-/* 「或」字樣式 */
-.or {
-  color: #666;
-  margin: 0 0.4em;
-  font-weight: normal;
-}
 
 .tip {
   font-size: 1.4rem;
