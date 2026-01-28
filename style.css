@@ -24,52 +24,10 @@ h1 {
   color: #e91e63;
 }
 
-.date-row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;                    /* 按鈕同日期之間距離加大 */
-  margin-bottom: 35px;
-  flex-wrap: wrap;              /* 手機上會自動換行 */
-}
-
-.date-btn {
-  background: rgba(0, 0, 0, 0.1);
-  border: none;
-  border-radius: 50%;
-  width: 55px;
-  height: 55px;
-  font-size: 1.5rem;
-  cursor: pointer;
-  color: #555;
-  transition: all 0.2s;
-}
-
-.date-btn:hover {
-  background: rgba(0, 0, 0, 0.2);
-  transform: scale(1.1);
-}
-
 .date {
-  font-size: 1.9rem;
-  color: #333;
-  margin: 0;
-  padding: 0 20px;              /* 左右加闊空間 */
-  white-space: nowrap;
-}
-
-/* 手機上加大日期行空間 */
-@media (max-width: 480px) {
-  .date-row {
-    gap: 15px;
-    flex-direction: row;
-    justify-content: space-around;
-  }
-  
-  .date {
-    padding: 0 30px;            /* 手機上再闊啲 */
-    font-size: 1.7rem;
-  }
+  font-size: 1.6rem;
+  margin-bottom: 30px;
+  color: #555;
 }
 
 #result {
@@ -77,51 +35,44 @@ h1 {
   margin: 40px 0;
   color: #d81b60;
   font-weight: bold;
-  line-height: 1.7;
+  line-height: 1.6;
 }
 
 .advice-line {
-  margin-bottom: 1em;           /* 每組之間距離 */
+  margin-bottom: 0.5em;
   text-align: left;
 }
 
 .advice-line .label {
-  display: block;               /* 標題獨佔一行 */
-  margin-bottom: 0.2em;         /* 標題同結果之間小距離 */
+  display: inline;
+  margin-right: 0.4em;
   color: #555;
-  font-size: 2.1rem;
+  font-size: 2.2rem;
 }
 
 .advice-line .color-part {
-  display: block;               /* 顏色結果開新一行 */
   font-size: 2.4rem;
-  margin-bottom: 0.8em;         /* 每組結果同下一組標題之間距離 */
 }
 
-/* 獨立顏色 class */
-.color-black       { color: #111111; }
-.color-blue        { color: #1e40af; }
-.color-green       { color: #15803d; }
-.color-big-yellow  { color: #d97706; }
-.color-big-red     { color: #b91c1c; }
-.color-light-yellow{ color: #fbbf24; }
-.color-light-red   { color: #f87171; }
-.color-mud-yellow  { color: #a0785a; }
-.color-brown       { color: #78543d; }
-.color-white       { color: #e5e5e5; }
-.color-gold        { color: #d4af37; }
-.color-red         { color: #ef4444; }
-.color-light-green { color: #6ee7b7; }
-.color-deep-green  { color: #065f46; }
+/* 獨立顏色 class - 每個顏色都有自己 hex code */
+.color-black     { color: #111111; }      /* 黑 */
+.color-blue      { color: #1e40af; }      /* 藍 */
+.color-green     { color: #15803d; }      /* 綠 */
+.color-big-yellow{ color: #d97706; }      /* 大黃 */
+.color-big-red   { color: #b91c1c; }      /* 大紅 */
+.color-light-yellow { color: #fbbf24; }   /* 淺黃 */
+.color-light-red { color: #f87171; }      /* 淺紅 */
+.color-mud-yellow{ color: #a0785a; }      /* 泥黃 */
+.color-brown     { color: #78543d; }      /* 啡 */
+.color-white     { color: #e5e5e5; }      /* 白（淺灰白） */
+.color-gold      { color: #d4af37; }      /* 金 */
+.color-red       { color: #ef4444; }      /* 紅 */
+.color-light-green { color: #6ee7b7; }    /* 淺綠 */
+.color-deep-green{ color: #065f46; }      /* 深綠 */
 
 /* 「或」字樣式 */
 .or {
   color: #666;
   margin: 0 0.4em;
   font-weight: normal;
-}
-
-.tip {
-  font-size: 1.4rem;
-  color: #777;
 }
