@@ -12,7 +12,7 @@ body {
 .container {
   text-align: center;
   background: rgba(255, 255, 255, 0.85);
-  padding: 35px 20px;           /* 手機 padding 再細 */
+  padding: 35px 20px;
   border-radius: 30px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.2);
   max-width: 95%;
@@ -28,12 +28,11 @@ h1 {
 
 .date-row {
   display: flex;
-  justify-content: space-between;  /* 左右按鈕推到邊，日期居中 */
+  justify-content: space-between;
   align-items: center;
   gap: 10px;
   margin-bottom: 30px;
-  padding: 0 15px;               /* 左右加空間 */
-  flex-wrap: nowrap;
+  padding: 0 15px;
 }
 
 .date-btn {
@@ -53,24 +52,25 @@ h1 {
 }
 
 .date {
-  font-size: 1.7rem;             /* 桌面正常大小 */
+  font-size: 1.7rem;
   color: #333;
   margin: 0;
-  white-space: normal;           /* 允許自動換行 */
-  word-break: keep-all;          /* 中文字唔會斷字 */
+  white-space: normal;
+  word-break: keep-all;
   text-align: center;
   flex-grow: 1;
   flex-shrink: 1;
+  line-height: 1.4;
 }
 
-/* 手機專用：日期自動適應 */
+/* 手機專用 */
 @media (max-width: 480px) {
   .container {
     padding: 30px 15px;
   }
   
   h1 {
-    font-size: 2.3rem;
+    font-size: 2.2rem;
   }
   
   .date-row {
@@ -85,8 +85,7 @@ h1 {
   }
   
   .date {
-    font-size: 1.5rem;           /* 手機再細啲，但唔會剪裁 */
-    line-height: 1.4;
+    font-size: 1.45rem;
   }
 }
 
@@ -95,17 +94,19 @@ h1 {
   margin: 30px 0;
   color: #d81b60;
   font-weight: bold;
-  line-height: 1.7;
+  line-height: 1.8;
+  overflow: visible;
+  min-height: 200px;            /* 預留空間，避免內容隱藏 */
 }
 
 .advice-line {
-  margin-bottom: 1.2em;
+  margin-bottom: 1.4em;
   text-align: left;
 }
 
 .advice-line .label {
   display: block;
-  margin-bottom: 0.3em;
+  margin-bottom: 0.4em;
   color: #555;
   font-size: 2.0rem;
 }
@@ -113,11 +114,13 @@ h1 {
 .advice-line .result-line {
   display: block;
   font-size: 2.3rem;
+  line-height: 1.5;
 }
 
 .advice-line .color-part,
 .advice-line .or {
   display: inline;
+  vertical-align: baseline;
 }
 
 .or {
