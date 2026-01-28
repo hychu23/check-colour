@@ -12,28 +12,28 @@ body {
 .container {
   text-align: center;
   background: rgba(255, 255, 255, 0.85);
-  padding: 40px 25px;           /* 手機 padding 細啲 */
+  padding: 35px 20px;           /* 手機 padding 再細 */
   border-radius: 30px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-  max-width: 95%;               /* 手機用更大寬度 */
+  max-width: 95%;
   width: 100%;
   box-sizing: border-box;
 }
 
 h1 {
-  font-size: 2.6rem;            /* 手機稍細啲 */
+  font-size: 2.5rem;
   margin-bottom: 15px;
   color: #e91e63;
 }
 
 .date-row {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;  /* 左右按鈕推到邊，日期居中 */
   align-items: center;
-  gap: 12px;                    /* 手機間距細啲 */
+  gap: 10px;
   margin-bottom: 30px;
-  flex-wrap: nowrap;            /* 唔畀換行，靠縮小字體解決 */
-  overflow: hidden;
+  padding: 0 15px;               /* 左右加空間 */
+  flex-wrap: nowrap;
 }
 
 .date-btn {
@@ -45,8 +45,7 @@ h1 {
   font-size: 1.3rem;
   cursor: pointer;
   color: #555;
-  flex-shrink: 0;               /* 按鈕唔縮細 */
-  transition: all 0.2s;
+  flex-shrink: 0;
 }
 
 .date-btn:hover {
@@ -54,18 +53,17 @@ h1 {
 }
 
 .date {
-  font-size: 1.7rem;            /* 手機字體細啲 */
+  font-size: 1.7rem;             /* 桌面正常大小 */
   color: #333;
   margin: 0;
-  padding: 0 10px;
-  white-space: nowrap;
+  white-space: normal;           /* 允許自動換行 */
+  word-break: keep-all;          /* 中文字唔會斷字 */
+  text-align: center;
+  flex-grow: 1;
   flex-shrink: 1;
-  overflow: hidden;
-  text-overflow: ellipsis;      /* 太長就顯示 ... */
-  max-width: 55%;               /* 限制最大寬度，避免頂出界 */
 }
 
-/* 手機專用調整 */
+/* 手機專用：日期自動適應 */
 @media (max-width: 480px) {
   .container {
     padding: 30px 15px;
@@ -77,6 +75,7 @@ h1 {
   
   .date-row {
     gap: 8px;
+    padding: 0 10px;
   }
   
   .date-btn {
@@ -86,9 +85,8 @@ h1 {
   }
   
   .date {
-    font-size: 1.55rem;
-    padding: 0 8px;
-    max-width: 60%;
+    font-size: 1.5rem;           /* 手機再細啲，但唔會剪裁 */
+    line-height: 1.4;
   }
 }
 
@@ -120,7 +118,6 @@ h1 {
 .advice-line .color-part,
 .advice-line .or {
   display: inline;
-  vertical-align: baseline;
 }
 
 .or {
