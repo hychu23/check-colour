@@ -12,15 +12,17 @@ body {
 .container {
   text-align: center;
   background: rgba(255, 255, 255, 0.85);
-  padding: 50px 40px;
+  padding: 40px 25px;           /* 手機 padding 細啲 */
   border-radius: 30px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-  max-width: 90%;
+  max-width: 95%;               /* 手機用更大寬度 */
+  width: 100%;
+  box-sizing: border-box;
 }
 
 h1 {
-  font-size: 2.8rem;
-  margin-bottom: 10px;
+  font-size: 2.6rem;            /* 手機稍細啲 */
+  margin-bottom: 15px;
   color: #e91e63;
 }
 
@@ -28,50 +30,71 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;
-  margin-bottom: 35px;
-  flex-wrap: wrap;
+  gap: 12px;                    /* 手機間距細啲 */
+  margin-bottom: 30px;
+  flex-wrap: nowrap;            /* 唔畀換行，靠縮小字體解決 */
+  overflow: hidden;
 }
 
 .date-btn {
   background: rgba(0, 0, 0, 0.1);
   border: none;
   border-radius: 50%;
-  width: 55px;
-  height: 55px;
-  font-size: 1.5rem;
+  width: 48px;
+  height: 48px;
+  font-size: 1.3rem;
   cursor: pointer;
   color: #555;
+  flex-shrink: 0;               /* 按鈕唔縮細 */
   transition: all 0.2s;
 }
 
 .date-btn:hover {
   background: rgba(0, 0, 0, 0.2);
-  transform: scale(1.1);
 }
 
 .date {
-  font-size: 1.9rem;
+  font-size: 1.7rem;            /* 手機字體細啲 */
   color: #333;
   margin: 0;
-  padding: 0 20px;
+  padding: 0 10px;
   white-space: nowrap;
+  flex-shrink: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;      /* 太長就顯示 ... */
+  max-width: 55%;               /* 限制最大寬度，避免頂出界 */
 }
 
+/* 手機專用調整 */
 @media (max-width: 480px) {
-  .date-row {
-    gap: 15px;
-    justify-content: space-around;
+  .container {
+    padding: 30px 15px;
   }
+  
+  h1 {
+    font-size: 2.3rem;
+  }
+  
+  .date-row {
+    gap: 8px;
+  }
+  
+  .date-btn {
+    width: 42px;
+    height: 42px;
+    font-size: 1.2rem;
+  }
+  
   .date {
-    padding: 0 30px;
-    font-size: 1.7rem;
+    font-size: 1.55rem;
+    padding: 0 8px;
+    max-width: 60%;
   }
 }
 
 #result {
-  font-size: 2.4rem;
-  margin: 40px 0;
+  font-size: 2.3rem;
+  margin: 30px 0;
   color: #d81b60;
   font-weight: bold;
   line-height: 1.7;
@@ -86,27 +109,27 @@ h1 {
   display: block;
   margin-bottom: 0.3em;
   color: #555;
-  font-size: 2.1rem;
+  font-size: 2.0rem;
 }
 
 .advice-line .result-line {
   display: block;
-  font-size: 2.4rem;
+  font-size: 2.3rem;
 }
 
 .advice-line .color-part,
 .advice-line .or {
-  display: inline;               /* 確保「黑 或 藍」同一行 */
+  display: inline;
   vertical-align: baseline;
 }
 
-.advice-line .or {
+.or {
   color: #666;
   margin: 0 0.4em;
   font-weight: normal;
 }
 
-/* 獨立顏色 class */
+/* 顏色 class */
 .color-black       { color: #111111; }
 .color-blue        { color: #1e40af; }
 .color-green       { color: #15803d; }
@@ -123,6 +146,6 @@ h1 {
 .color-deep-green  { color: #065f46; }
 
 .tip {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   color: #777;
 }
