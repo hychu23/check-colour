@@ -24,10 +24,35 @@ h1 {
   color: #e91e63;
 }
 
-.date {
-  font-size: 1.6rem;
+.date-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
   margin-bottom: 30px;
+}
+
+.date-btn {
+  background: rgba(0, 0, 0, 0.1);
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 1.4rem;
+  cursor: pointer;
   color: #555;
+  transition: all 0.2s;
+}
+
+.date-btn:hover {
+  background: rgba(0, 0, 0, 0.2);
+  transform: scale(1.1);
+}
+
+.date {
+  font-size: 1.8rem;
+  color: #333;
+  margin: 0;
 }
 
 #result {
@@ -54,25 +79,30 @@ h1 {
   font-size: 2.4rem;
 }
 
-/* 獨立顏色 class - 每個顏色都有自己 hex code */
-.color-black     { color: #111111; }      /* 黑 */
-.color-blue      { color: #1e40af; }      /* 藍 */
-.color-green     { color: #15803d; }      /* 綠 */
-.color-big-yellow{ color: #d97706; }      /* 大黃 */
-.color-big-red   { color: #b91c1c; }      /* 大紅 */
-.color-light-yellow { color: #fbbf24; }   /* 淺黃 */
-.color-light-red { color: #f87171; }      /* 淺紅 */
-.color-mud-yellow{ color: #a0785a; }      /* 泥黃 */
-.color-brown     { color: #78543d; }      /* 啡 */
-.color-white     { color: #e5e5e5; }      /* 白（淺灰白） */
-.color-gold      { color: #d4af37; }      /* 金 */
-.color-red       { color: #ef4444; }      /* 紅 */
-.color-light-green { color: #6ee7b7; }    /* 淺綠 */
-.color-deep-green{ color: #065f46; }      /* 深綠 */
+/* 獨立顏色 class */
+.color-black       { color: #111111; }
+.color-blue        { color: #1e40af; }
+.color-green       { color: #15803d; }
+.color-big-yellow  { color: #d97706; }
+.color-big-red     { color: #b91c1c; }
+.color-light-yellow{ color: #fbbf24; }
+.color-light-red   { color: #f87171; }
+.color-mud-yellow  { color: #a0785a; }
+.color-brown       { color: #78543d; }
+.color-white       { color: #e5e5e5; }
+.color-gold        { color: #d4af37; }
+.color-red         { color: #ef4444; }
+.color-light-green { color: #6ee7b7; }
+.color-deep-green  { color: #065f46; }
 
 /* 「或」字樣式 */
 .or {
   color: #666;
   margin: 0 0.4em;
   font-weight: normal;
+}
+
+.tip {
+  font-size: 1.4rem;
+  color: #777;
 }
