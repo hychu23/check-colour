@@ -1,8 +1,9 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const today = new Date();
-  const year = today.getFullYear();
-  const month = today.getMonth() + 1;
-  const day = today.getDate();
+let currentDate = new Date();  // 初始為今日
+
+function updateDisplay() {
+  const year = currentDate.getFullYear();
+  const month = currentDate.getMonth() + 1;
+  const day = currentDate.getDate();
 
   document.getElementById("date").textContent = 
     `${year}年 ${month}月 ${day}日`;
@@ -86,4 +87,18 @@ document.addEventListener("DOMContentLoaded", () => {
     `<div class="advice-line"><span class="label">今日忌嘅顏色：</span> ${colorizeText(advice.ji)}</div>`;
 
   document.getElementById("result").innerHTML = resultHTML;
+}
+
+// 切換日期
+document.getElementById("prevDay").addEventListener("click", () => {
+  currentDate.setDate(currentDate.getDate() - 1);
+  updateDisplay();
 });
+
+document.getElementById("nextDay").addEventListener("click", () => {
+  currentDate.setDate(currentDate.getDate() + 1);
+  updateDisplay();
+});
+
+// 頁面載入時顯示今日
+updateDisplay();
