@@ -1,26 +1,29 @@
 body {
   font-family: 'Microsoft JhengHei', 'Helvetica', sans-serif;
   background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-  height: 100vh;
+  min-height: 100vh;              /* 改 min-height，避免頂出 */
   margin: 0;
+  padding: 20px 0;                /* 加頂部空間 */
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;        /* 改 flex-start，避免居中頂出 */
   color: #333;
 }
 
 .container {
   text-align: center;
   background: rgba(255, 255, 255, 0.85);
-  padding: 50px 40px;
+  padding: 40px 30px;
   border-radius: 30px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.2);
   max-width: 90%;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 h1 {
-  font-size: 2.8rem;
-  margin-bottom: 10px;
+  font-size: 2.6rem;
+  margin-bottom: 15px;
   color: #e91e63;
 }
 
@@ -28,9 +31,9 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;                    /* 按鈕同日期之間距離加大 */
+  gap: 20px;
   margin-bottom: 35px;
-  flex-wrap: wrap;              /* 手機上會自動換行 */
+  flex-wrap: wrap;
 }
 
 .date-btn {
@@ -54,51 +57,44 @@ h1 {
   font-size: 1.9rem;
   color: #333;
   margin: 0;
-  padding: 0 20px;              /* 左右加闊空間 */
+  padding: 0 25px;
   white-space: nowrap;
 }
 
-/* 手機上加大日期行空間 */
-@media (max-width: 480px) {
-  .date-row {
-    gap: 15px;
-    flex-direction: row;
-    justify-content: space-around;
-  }
-  
-  .date {
-    padding: 0 30px;            /* 手機上再闊啲 */
-    font-size: 1.7rem;
-  }
-}
-
 #result {
-  font-size: 2.4rem;
-  margin: 40px 0;
+  font-size: 2.3rem;
+  margin: 30px 0;
   color: #d81b60;
   font-weight: bold;
-  line-height: 1.7;
+  line-height: 1.8;
+  text-align: left;
+  max-width: 100%;
 }
 
 .advice-line {
-  margin-bottom: 1em;           /* 每組之間距離 */
-  text-align: left;
+  margin-bottom: 1em;
 }
 
 .advice-line .label {
-  display: block;               /* 標題獨佔一行 */
-  margin-bottom: 0.2em;         /* 標題同結果之間小距離 */
   color: #555;
   font-size: 2.1rem;
+  display: inline;
+  margin-right: 0.5em;
 }
 
-.advice-line .color-part {
-  display: block;               /* 顏色結果開新一行 */
-  font-size: 2.4rem;
-  margin-bottom: 0.8em;         /* 每組結果同下一組標題之間距離 */
+.advice-line .color-part,
+.advice-line .or {
+  display: inline;
+  font-size: 2.3rem;
 }
 
-/* 獨立顏色 class */
+.advice-line .or {
+  color: #666;
+  margin: 0 0.4em;
+  font-weight: normal;
+}
+
+/* 顏色 class */
 .color-black       { color: #111111; }
 .color-blue        { color: #1e40af; }
 .color-green       { color: #15803d; }
@@ -114,14 +110,32 @@ h1 {
 .color-light-green { color: #6ee7b7; }
 .color-deep-green  { color: #065f46; }
 
-/* 「或」字樣式 */
-.or {
-  color: #666;
-  margin: 0 0.4em;
-  font-weight: normal;
+/* 手機調整 */
+@media (max-width: 480px) {
+  .container {
+    padding: 30px 20px;
+  }
+  h1 {
+    font-size: 2.4rem;
+  }
+  .date-row {
+    gap: 12px;
+  }
+  .date {
+    font-size: 1.6rem;
+    padding: 0 15px;
+  }
+  #result {
+    font-size: 2rem;
+  }
+  .advice-line .label,
+  .advice-line .color-part {
+    font-size: 1.9rem;
+  }
 }
 
 .tip {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   color: #777;
+  margin-top: 30px;
 }
