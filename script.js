@@ -1,4 +1,4 @@
-let currentDate = new Date();  // 初始為今日
+let currentDate = new Date();
 
 function updateDisplay() {
   const year = currentDate.getFullYear();
@@ -41,7 +41,6 @@ function updateDisplay() {
 
   const advice = colorAdvice[number];
 
-  // 每個獨立顏色詞對應 class
   const getColorClass = (text) => {
     text = text.trim();
     if (text === "黑") return "color-black";
@@ -61,7 +60,6 @@ function updateDisplay() {
     return "";
   };
 
-  // 處理文字：有「或」就拆開上色，但保持同一行
   const colorizeText = (text) => {
     if (!text.includes("或")) {
       return `<span class="color-part ${getColorClass(text)}">${text}</span>`;
@@ -89,7 +87,6 @@ function updateDisplay() {
   document.getElementById("result").innerHTML = resultHTML;
 }
 
-// 切換日期
 document.getElementById("prevDay").addEventListener("click", () => {
   currentDate.setDate(currentDate.getDate() - 1);
   updateDisplay();
@@ -100,5 +97,4 @@ document.getElementById("nextDay").addEventListener("click", () => {
   updateDisplay();
 });
 
-// 頁面載入時顯示今日
 updateDisplay();
